@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ru" data-faction="guest">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Терминал — CatCo × Seraphim</title>
+  <meta name="description" content="Служебный терминал публичной визитки CatCo и Seraphim.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#06090e">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2306090e'/%3E%3Cpath d='M13 7h6v6h6v6h-6v6h-6v-6H7v-6h6z' fill='%235fd8c6'/%3E%3C/svg%3E">
+  <script>
+    try {
+      var savedTheme = localStorage.getItem("cs-theme");
+      if (savedTheme === "both") savedTheme = "guest";
+      if (savedTheme === "catco" || savedTheme === "seraphim" || savedTheme === "guest") {
+        document.documentElement.setAttribute("data-faction", savedTheme);
+      }
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <div class="screen-fx" aria-hidden="true"></div>
+
+  <div class="boot" id="boot" hidden aria-label="Заставка подключения">
+    <div class="boot__panel">
+      <p class="boot__title">Подключение к сети</p>
+      <ul class="boot__lines" aria-hidden="true">
+        <li>&gt; установка связи с узлом CATCO-06</li>
+        <li>&gt; проверка допуска: гость</li>
+        <li>&gt; канал: публичная визитка</li>
+        <li>&gt; дешифровка архива: ок</li>
+        <li>&gt; сверка с сетью Шестого мира: ок</li>
+        <li>&gt; готово. добро пожаловать</li>
+      </ul>
+      <div class="boot__bar" aria-hidden="true"><span class="boot__fill"></span></div>
+      <div class="boot__actions">
+        <button class="boot__skip" type="button">Пропустить</button>
+        <button class="boot__sound" type="button" aria-pressed="false">Звук: выкл</button>
+      </div>
+      <label class="boot__never">
+        <input type="checkbox" id="boot-never">
+        Больше не показывать
+      </label>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <div class="topbar__inner">
+      <div class="brand-wrap">
+        <a class="brand" href="index.html">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <span class="brand__text">CATCO<span class="brand__slash">//</span>SERAPHIM</span>
+        </a>
+        <span class="access">публичная визитка</span>
+      </div>
+
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav">
+        <span class="burger__lines" aria-hidden="true"></span>
+        Меню
+      </button>
+
+      <nav class="nav" id="nav" aria-label="Разделы сайта">
+        <ul class="nav__list">
+          <li><a href="kto-my.html">Кто мы</a></li>
+          <li><a href="igra.html">Игра</a></li>
+          <li><a href="svyaz.html">Связаться</a></li>
+        </ul>
+
+        <div class="theme-switch" role="group" aria-label="Облик сайта">
+          <button class="theme-switch__btn" type="button" data-theme="catco" aria-pressed="false">CatCo</button>
+          <button class="theme-switch__btn" type="button" data-theme="seraphim" aria-pressed="false">Seraphim</button>
+          <button class="theme-switch__btn" type="button" data-theme="guest" aria-pressed="true">Гость</button>
+        </div>
+
+        <button class="sound-btn" id="sound-toggle" type="button" aria-pressed="false">Звук: выкл</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="page">
+    <div class="page__head">
+      <p class="kicker"><span class="kicker__dot" aria-hidden="true"></span>Служебный вход</p>
+      <h1 class="page__title">Терминал</h1>
+      <p class="page__lead">
+        Строка доступа к сети. Команды — латиницей, как в старых системах.
+        Начните с <code>help</code>.
+      </p>
+    </div>
+
+    <section class="panel" aria-labelledby="term-title">
+      <p class="panel__label" id="term-title">guest@catco:~$</p>
+
+      <div class="terminal-window" id="term-window">
+        <div class="terminal-window__log" id="term-log" role="log" aria-live="polite" aria-label="Ответы терминала"></div>
+
+        <form class="terminal-window__form" id="term-form" autocomplete="off">
+          <label class="visually-hidden" for="term-input">Команда</label>
+          <span class="terminal-window__prompt" aria-hidden="true">&gt;</span>
+          <input
+            class="terminal-window__input"
+            id="term-input"
+            name="term"
+            type="text"
+            maxlength="80"
+            autocapitalize="off"
+            autocorrect="off"
+            spellcheck="false"
+            enterkeyhint="send"
+            aria-describedby="term-help"
+          >
+          <button class="terminal-window__send" type="submit">Ввод</button>
+        </form>
+
+        <noscript>
+          <p class="terminal-window__line terminal-window__line--warn">
+            Для терминала нужен включённый JavaScript. Без него команды не работают.
+          </p>
+        </noscript>
+
+        <div class="terminal-window__actions">
+          <button class="terminal-window__give" id="term-give" type="button">Сдаться</button>
+        </div>
+
+        <p class="terminal-window__hint" id="term-help">
+          Подсказка: имя двери есть на этом сайте, а ответ — в досье Seraphim.
+        </p>
+      </div>
+    </section>
+
+    <nav class="pager" aria-label="Соседние разделы">
+      <a class="pager__link" href="igra.html">
+        <span>Назад</span>
+        <strong>Игра</strong>
+      </a>
+      <a class="pager__link pager__link--next" href="index.html">
+        <span>Дальше</span>
+        <strong>Главная</strong>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <p class="footer__line">Полевая игра Shadowrun: Burning Man</p>
+      <p class="footer__muted" data-astral="Визитка, которую видно и с той стороны.">Публичная визитка команды CatCo × Seraphim.</p>
+      <p class="footer__muted"><a class="linklike" href="svyaz.html#svoi">Вход для своих</a></p>
+      <button class="astral-toggle" id="astral-toggle" type="button" aria-pressed="false">Смотреть из астрала</button>
+      <p class="footer__muted">© <span id="year">2026</span> CatCo × Seraphim</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

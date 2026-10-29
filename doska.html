@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ru" data-faction="guest">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Доска угроз — CatCo × Seraphim</title>
+  <meta name="description" content="Доска расследования CatCo и Seraphim: карточки, нити и картина заговора.">
+  <meta name="theme-color" content="#06090e">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2306090e'/%3E%3Cpath d='M13 7h6v6h6v6h-6v6h-6v-6H7v-6h6z' fill='%235fd8c6'/%3E%3C/svg%3E">
+  <script>
+    try {
+      var savedTheme = localStorage.getItem("cs-theme");
+      if (savedTheme === "both") savedTheme = "guest";
+      if (savedTheme === "catco" || savedTheme === "seraphim" || savedTheme === "guest") {
+        document.documentElement.setAttribute("data-faction", savedTheme);
+      }
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <div class="screen-fx" aria-hidden="true"></div>
+
+  <div class="boot" id="boot" hidden aria-label="Заставка подключения">
+    <div class="boot__panel">
+      <p class="boot__title">Подключение к сети</p>
+      <ul class="boot__lines" aria-hidden="true">
+        <li>&gt; установка связи с узлом CATCO-06</li>
+        <li>&gt; проверка допуска: гость</li>
+        <li>&gt; канал: публичная визитка</li>
+        <li>&gt; дешифровка архива: ок</li>
+        <li>&gt; сверка с сетью Шестого мира: ок</li>
+        <li>&gt; готово. добро пожаловать</li>
+      </ul>
+      <div class="boot__bar" aria-hidden="true"><span class="boot__fill"></span></div>
+      <div class="boot__actions">
+        <button class="boot__skip" type="button">Пропустить</button>
+        <button class="boot__sound" type="button" aria-pressed="false">Звук: выкл</button>
+      </div>
+      <label class="boot__never">
+        <input type="checkbox" id="boot-never">
+        Больше не показывать
+      </label>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <div class="topbar__inner">
+      <div class="brand-wrap">
+        <a class="brand" href="index.html">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <span class="brand__text">CATCO<span class="brand__slash">//</span>SERAPHIM</span>
+        </a>
+        <span class="access">публичная визитка</span>
+      </div>
+
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav">
+        <span class="burger__lines" aria-hidden="true"></span>
+        Меню
+      </button>
+
+      <nav class="nav" id="nav" aria-label="Разделы сайта">
+        <ul class="nav__list">
+          <li><a href="kto-my.html">Кто мы</a></li>
+          <li><a href="igra.html">Игра</a></li>
+          <li><a href="svyaz.html">Связаться</a></li>
+        </ul>
+
+        <div class="theme-switch" role="group" aria-label="Облик сайта">
+          <button class="theme-switch__btn" type="button" data-theme="catco" aria-pressed="false">CatCo</button>
+          <button class="theme-switch__btn" type="button" data-theme="seraphim" aria-pressed="false">Seraphim</button>
+          <button class="theme-switch__btn" type="button" data-theme="guest" aria-pressed="true">Гость</button>
+        </div>
+
+        <button class="sound-btn" id="sound-toggle" type="button" aria-pressed="false">Звук: выкл</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="page">
+    <div class="page__head">
+      <p class="kicker"><span class="kicker__dot" aria-hidden="true"></span>Сектор анализа</p>
+      <h1 class="page__title">Доска угроз</h1>
+      <p class="page__lead">
+        Двигайте карточки, переворачивайте и смотрите, как связаны события.
+      </p>
+    </div>
+
+    <section class="panel" aria-labelledby="board-title">
+      <p class="panel__label" id="board-title">Материалы дела</p>
+      <p class="panel__text">
+        Карточки можно тащить мышью или пальцем, а нажатие переворачивает
+        их другой стороной. Красные нити показывают связи.
+      </p>
+
+      <div class="board-controls">
+        <button class="board-reset" id="board-reset" type="button">Собрать заново</button>
+      </div>
+
+      <div class="board" id="board">
+        <svg class="board__lines" id="board-lines" aria-hidden="true"></svg>
+
+        <article class="board-card" data-id="catco">
+          <button class="board-card__inner" type="button" aria-pressed="false" aria-label="CatCo. Корпорация-орден. Медицина, порядок, слово.">
+            <span class="board-card__face board-card__face--front" aria-hidden="true">
+              <span class="board-card__type">Корпорация</span>
+              <span class="board-card__title">CatCo</span>
+            </span>
+            <span class="board-card__face board-card__face--back" aria-hidden="true">
+              <span class="board-card__title">CatCo</span>
+              <span class="board-card__text">Корпорация-орден. Медицина, порядок, слово.</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="board-card" data-id="seraphim">
+          <button class="board-card__inner" type="button" aria-pressed="false" aria-label="Seraphim. Частная военная компания. Разведка, крылья, тайна.">
+            <span class="board-card__face board-card__face--front" aria-hidden="true">
+              <span class="board-card__type">Корпорация</span>
+              <span class="board-card__title">Seraphim</span>
+            </span>
+            <span class="board-card__face board-card__face--back" aria-hidden="true">
+              <span class="board-card__title">Seraphim</span>
+              <span class="board-card__text">Частная военная компания. Разведка, крылья, тайна.</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="board-card" data-id="docwagon">
+          <button class="board-card__inner" type="button" aria-pressed="false" aria-label="DocWagon. Служба спасения, с которой работает CatCo.">
+            <span class="board-card__face board-card__face--front" aria-hidden="true">
+              <span class="board-card__type">Партнёр</span>
+              <span class="board-card__title">DocWagon</span>
+            </span>
+            <span class="board-card__face board-card__face--back" aria-hidden="true">
+              <span class="board-card__title">DocWagon</span>
+              <span class="board-card__text">Служба спасения, с которой работает CatCo.</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="board-card" data-id="medicina">
+          <button class="board-card__inner" type="button" aria-pressed="false" aria-label="Медицина. Клиники, спасение, помощь.">
+            <span class="board-card__face board-card__face--front" aria-hidden="true">
+              <span class="board-card__type">Работа</span>
+              <span class="board-card__title">Медицина</span>
+            </span>
+            <span class="board-card__face board-card__face--back" aria-hidden="true">
+              <span class="board-card__title">Медицина</span>
+              <span class="board-card__text">Клиники, спасение, помощь.</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="board-card" data-id="orden">
+          <button class="board-card__inner" type="button" aria-pressed="false" aria-label="Орден. Лечить не только тело, но и душу.">
+            <span class="board-card__face board-card__face--front" aria-hidden="true">
+              <span class="board-card__type">Идея</span>
+              <span class="board-card__title">Орден</span>
+            </span>
+            <span class="board-card__face board-card__face--back" aria-hidden="true">
+              <span class="board-card__title">Орден</span>
+              <span class="board-card__text">Лечить не только тело, но и душу.</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="board-card" data-id="katastrofa">
+          <button class="board-card__inner" type="button" aria-pressed="false" aria-label="Катастрофа Матрицы. После неё всё изменилось.">
+            <span class="board-card__face board-card__face--front" aria-hidden="true">
+              <span class="board-card__type">Событие</span>
+              <span class="board-card__title">Катастрофа Матрицы</span>
+            </span>
+            <span class="board-card__face board-card__face--back" aria-hidden="true">
+              <span class="board-card__title">Катастрофа Матрицы</span>
+              <span class="board-card__text">После неё всё изменилось.</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="board-card" data-id="utechki">
+          <button class="board-card__inner" type="button" aria-pressed="false" aria-label="Утечки данных. То, что запустило перемены.">
+            <span class="board-card__face board-card__face--front" aria-hidden="true">
+              <span class="board-card__type">Событие</span>
+              <span class="board-card__title">Утечки данных</span>
+            </span>
+            <span class="board-card__face board-card__face--back" aria-hidden="true">
+              <span class="board-card__title">Утечки данных</span>
+              <span class="board-card__text">То, что запустило перемены.</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="board-card" data-id="krylya">
+          <button class="board-card__inner" type="button" aria-pressed="false" aria-label="Четыре крыла. Штаб, отряды, информация, забота.">
+            <span class="board-card__face board-card__face--front" aria-hidden="true">
+              <span class="board-card__type">Структура</span>
+              <span class="board-card__title">Четыре крыла</span>
+            </span>
+            <span class="board-card__face board-card__face--back" aria-hidden="true">
+              <span class="board-card__title">Четыре крыла</span>
+              <span class="board-card__text">Штаб, отряды, информация, забота.</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="board-card" data-id="razvedka">
+          <button class="board-card__inner" type="button" aria-pressed="false" aria-label="Разведка. Сведения и проверка того, что говорят другие.">
+            <span class="board-card__face board-card__face--front" aria-hidden="true">
+              <span class="board-card__type">Работа</span>
+              <span class="board-card__title">Разведка</span>
+            </span>
+            <span class="board-card__face board-card__face--back" aria-hidden="true">
+              <span class="board-card__title">Разведка</span>
+              <span class="board-card__text">Сведения и проверка того, что говорят другие.</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="board-card" data-id="shestoy">
+          <button class="board-card__inner" type="button" aria-pressed="false" aria-label="Шестой мир. Время, в котором мы играем.">
+            <span class="board-card__face board-card__face--front" aria-hidden="true">
+              <span class="board-card__type">Мир</span>
+              <span class="board-card__title">Шестой мир</span>
+            </span>
+            <span class="board-card__face board-card__face--back" aria-hidden="true">
+              <span class="board-card__title">Шестой мир</span>
+              <span class="board-card__text">Время, в котором мы играем.</span>
+            </span>
+          </button>
+        </article>
+
+        <article class="board-card" data-id="burningman">
+          <button class="board-card__inner" type="button" aria-pressed="false" aria-label="Burning Man. Полевая игра, куда мы едем.">
+            <span class="board-card__face board-card__face--front" aria-hidden="true">
+              <span class="board-card__type">Игра</span>
+              <span class="board-card__title">Burning Man</span>
+            </span>
+            <span class="board-card__face board-card__face--back" aria-hidden="true">
+              <span class="board-card__title">Burning Man</span>
+              <span class="board-card__text">Полевая игра, куда мы едем.</span>
+            </span>
+          </button>
+        </article>
+      </div>
+
+      <noscript>
+        <p class="panel__text">
+          Без JavaScript карточки не двигаются, но всё важное написано
+          на них и в списке связей ниже.
+        </p>
+      </noscript>
+
+      <p class="board-hint">Нажатие переворачивает карточку. Тащите — чтобы двигать.</p>
+
+      <details class="board-links">
+        <summary>Список связей</summary>
+        <ul>
+          <li>CatCo — DocWagon</li>
+          <li>CatCo — Медицина</li>
+          <li>CatCo — Seraphim</li>
+          <li>CatCo — Орден</li>
+          <li>CatCo — Катастрофа Матрицы</li>
+          <li>Seraphim — Разведка</li>
+          <li>Seraphim — Четыре крыла</li>
+          <li>Seraphim — Катастрофа Матрицы</li>
+          <li>Seraphim — Утечки данных</li>
+          <li>Утечки данных — Катастрофа Матрицы</li>
+          <li>Шестой мир — Burning Man</li>
+          <li>Burning Man — CatCo</li>
+          <li>Burning Man — Seraphim</li>
+        </ul>
+      </details>
+    </section>
+
+    <section class="panel" aria-labelledby="board-story-title">
+      <p class="panel__label" id="board-story-title">Что тут вообще происходит</p>
+      <p class="panel__text">
+        CatCo начиналась с медицины и держалась на слове. Потом случилась
+        катастрофа Матрицы: утечки, потеря категории, расформирование
+        разведывательного крыла. Seraphim собрали заново как частную
+        военную компанию — и с тех пор обе стороны идут рядом.
+      </p>
+      <p class="panel__text">
+        На доске нет тайн игры. Только то, что и так написано на сайте:
+        кто с кем связан и почему.
+      </p>
+    </section>
+
+    <nav class="pager" aria-label="Соседние разделы">
+      <a class="pager__link" href="kto-my.html">
+        <span>Назад</span>
+        <strong>Кто мы</strong>
+      </a>
+      <a class="pager__link pager__link--next" href="igra.html">
+        <span>Дальше</span>
+        <strong>Игра</strong>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <p class="footer__line">Полевая игра Shadowrun: Burning Man</p>
+      <p class="footer__muted" data-astral="Визитка, которую видно и с той стороны.">Публичная визитка команды CatCo × Seraphim.</p>
+      <p class="footer__muted"><a class="linklike" href="svyaz.html#svoi">Вход для своих</a></p>
+      <p class="footer__muted"><a class="linklike" href="terminal.html">&gt; терминал</a></p>
+      <button class="astral-toggle" id="astral-toggle" type="button" aria-pressed="false">Смотреть из астрала</button>
+      <p class="footer__muted">© <span id="year">2026</span> CatCo × Seraphim</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

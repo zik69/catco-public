@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ru" data-faction="guest">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Игра — CatCo × Seraphim</title>
+  <meta name="description" content="Во что мы играем, какие бластеры берём и что важно знать новичку. Shadowrun: Burning Man.">
+  <meta name="theme-color" content="#06090e">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2306090e'/%3E%3Cpath d='M13 7h6v6h6v6h-6v6h-6v-6H7v-6h6z' fill='%235fd8c6'/%3E%3C/svg%3E">
+  <script>
+    try {
+      var savedTheme = localStorage.getItem("cs-theme");
+      if (savedTheme === "both") savedTheme = "guest";
+      if (savedTheme === "catco" || savedTheme === "seraphim" || savedTheme === "guest") {
+        document.documentElement.setAttribute("data-faction", savedTheme);
+      }
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <div class="screen-fx" aria-hidden="true"></div>
+
+  <div class="boot" id="boot" hidden aria-label="Заставка подключения">
+    <div class="boot__panel">
+      <p class="boot__title">Подключение к сети</p>
+      <ul class="boot__lines" aria-hidden="true">
+        <li>&gt; установка связи с узлом CATCO-06</li>
+        <li>&gt; проверка допуска: гость</li>
+        <li>&gt; канал: публичная визитка</li>
+        <li>&gt; дешифровка архива: ок</li>
+        <li>&gt; сверка с сетью Шестого мира: ок</li>
+        <li>&gt; готово. добро пожаловать</li>
+      </ul>
+      <div class="boot__bar" aria-hidden="true"><span class="boot__fill"></span></div>
+      <div class="boot__actions">
+        <button class="boot__skip" type="button">Пропустить</button>
+        <button class="boot__sound" type="button" aria-pressed="false">Звук: выкл</button>
+      </div>
+      <label class="boot__never">
+        <input type="checkbox" id="boot-never">
+        Больше не показывать
+      </label>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <div class="topbar__inner">
+      <div class="brand-wrap">
+        <a class="brand" href="index.html">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <span class="brand__text">CATCO<span class="brand__slash">//</span>SERAPHIM</span>
+        </a>
+        <span class="access">публичная визитка</span>
+      </div>
+
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav">
+        <span class="burger__lines" aria-hidden="true"></span>
+        Меню
+      </button>
+
+      <nav class="nav" id="nav" aria-label="Разделы сайта">
+        <ul class="nav__list">
+          <li><a href="kto-my.html">Кто мы</a></li>
+          <li><a href="igra.html" aria-current="page">Игра</a></li>
+          <li><a href="svyaz.html">Связаться</a></li>
+        </ul>
+
+        <div class="theme-switch" role="group" aria-label="Облик сайта">
+          <button class="theme-switch__btn" type="button" data-theme="catco" aria-pressed="false">CatCo</button>
+          <button class="theme-switch__btn" type="button" data-theme="seraphim" aria-pressed="false">Seraphim</button>
+          <button class="theme-switch__btn" type="button" data-theme="guest" aria-pressed="true">Гость</button>
+        </div>
+
+        <button class="sound-btn" id="sound-toggle" type="button" aria-pressed="false">Звук: выкл</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="page">
+    <div class="page__head">
+      <p class="kicker"><span class="kicker__dot" aria-hidden="true"></span>Раздел 02 / 03</p>
+      <h1 class="page__title">Игра</h1>
+      <p class="page__lead">Во что мы играем, чем стреляем и что взять с собой в первый раз.</p>
+    </div>
+
+    <section class="panel" aria-labelledby="chto-title">
+      <p class="panel__label" id="chto-title">Что это за игра</p>
+      <p class="panel__text">
+        Полевая ролевая игра в мире Shadowrun — Шестого мира, где корпорации
+        заменили государства, магия вернулась, а сеть стала вторым полем боя.
+        Здесь важны не только перестрелки: договориться часто ценнее, чем
+        победить.
+      </p>
+      <p class="panel__text">
+        Burning Man — игра, на которую мы едем командой. Точные правила, место
+        и расписание дают организаторы; на этой странице — короткая памятка
+        для тех, кто едет с нами или хочет познакомиться.
+      </p>
+    </section>
+
+    <section class="panel" aria-labelledby="kem-title">
+      <p class="panel__label" id="kem-title">Кем мы играем</p>
+      <p class="panel__text">
+        Мы играем CatCo — корпорацию-орден с медицинской службой, — и Seraphim,
+        её разведывательное крыло и частную военную компанию. Наши задачи
+        на игре: лечить своих и чужих, охранять тех, кто нам доверился,
+        и выяснять то, что другие хотели бы скрыть.
+      </p>
+    </section>
+
+    <section class="panel" aria-labelledby="blaster-title">
+      <p class="panel__label" id="blaster-title">Бластеры: четыре класса</p>
+      <p class="panel__text">
+        Чем тяжелее класс, тем дольше в него «качаться». Новичку почти всегда
+        хватает пистолета, а дальше винтовок идти не обязательно.
+      </p>
+
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Класс</th>
+              <th>Кому доступен</th>
+              <th>Что нужно</th>
+              <th>Примеры</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Пистолеты</td>
+              <td>всем</td>
+              <td>ничего</td>
+              <td>Nerf Rival Takedown, Lizzy</td>
+            </tr>
+            <tr>
+              <td>Винтовки</td>
+              <td>с навыком и имплантом</td>
+              <td>навык, имплант</td>
+              <td>Worker Nightingale (полуавто), X-Shot Thrasher</td>
+            </tr>
+            <tr>
+              <td>Автоматы</td>
+              <td>с навыком и имплантом</td>
+              <td>навык, имплант</td>
+              <td>Nightingale (авто), Thrasher с магазином</td>
+            </tr>
+            <tr>
+              <td>Пулемёты</td>
+              <td>с навыком и имплантом</td>
+              <td>навык, имплант</td>
+              <td>Nerf Nemesis, Perses</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="terminal-line">&gt; скорость выстрела и допуск конкретной модели — по правилам игры</p>
+    </section>
+
+    <section class="panel" aria-labelledby="safe-title">
+      <p class="panel__label" id="safe-title">Безопасность</p>
+      <ul class="panel__list">
+        <li>Защита глаз обязательна всем — и стрелкам, и тем, кто рядом.</li>
+        <li>Не стреляем в голову и не стреляем в упор.</li>
+        <li>Осечка, боль или сомнение — поднимаем руку и говорим «стоп».</li>
+        <li>Вне игры бластер разряжен и убран.</li>
+      </ul>
+      <p class="panel__text" data-astral="Здесь берегут глаза и руки — не из страха, а потому что своих не бросают. Полные правила прочитайте у организаторов: они тоже хотят, чтобы вы вернулись.">
+        Это короткая памятка, а не полные правила: перед игрой обязательно
+        читаем то, что дают организаторы.
+      </p>
+    </section>
+
+    <section class="panel" aria-labelledby="start-title">
+      <p class="panel__label" id="start-title">С чего начать</p>
+      <ul class="panel__list">
+        <li>Возьмите пистолет: его хватает, и он не требует навыков.</li>
+        <li>Не покупайте пулемёт в первый раз — он дорогой и почти не влияет на игру.</li>
+        <li>Спросите совет до покупки: подскажем модель и не дадим купить лишнее.</li>
+      </ul>
+    </section>
+
+    <nav class="pager" aria-label="Соседние разделы">
+      <a class="pager__link" href="kto-my.html">
+        <span>Назад</span>
+        <strong>Кто мы</strong>
+      </a>
+      <a class="pager__link pager__link--next" href="svyaz.html">
+        <span>Дальше</span>
+        <strong>Связаться</strong>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <p class="footer__line">Полевая игра Shadowrun: Burning Man</p>
+      <p class="footer__muted" data-astral="Визитка, которую видно и с той стороны.">Публичная визитка команды CatCo × Seraphim.</p>
+      <p class="footer__muted"><a class="linklike" href="svyaz.html#svoi">Вход для своих</a></p>
+      <p class="footer__muted"><a class="linklike" href="terminal.html">&gt; терминал</a></p>
+      <button class="astral-toggle" id="astral-toggle" type="button" aria-pressed="false">Смотреть из астрала</button>
+      <p class="footer__muted">© <span id="year">2026</span> CatCo × Seraphim</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

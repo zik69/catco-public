@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ru" data-faction="guest">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Кто мы — CatCo × Seraphim</title>
+  <meta name="description" content="Коротко о CatCo и Seraphim: корпорация-орден и её разведывательное крыло. Полевая игра Shadowrun: Burning Man.">
+  <meta name="theme-color" content="#06090e">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2306090e'/%3E%3Cpath d='M13 7h6v6h6v6h-6v6h-6v-6H7v-6h6z' fill='%235fd8c6'/%3E%3C/svg%3E">
+  <script>
+    try {
+      var savedTheme = localStorage.getItem("cs-theme");
+      if (savedTheme === "both") savedTheme = "guest";
+      if (savedTheme === "catco" || savedTheme === "seraphim" || savedTheme === "guest") {
+        document.documentElement.setAttribute("data-faction", savedTheme);
+      }
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <div class="screen-fx" aria-hidden="true"></div>
+
+  <div class="boot" id="boot" hidden aria-label="Заставка подключения">
+    <div class="boot__panel">
+      <p class="boot__title">Подключение к сети</p>
+      <ul class="boot__lines" aria-hidden="true">
+        <li>&gt; установка связи с узлом CATCO-06</li>
+        <li>&gt; проверка допуска: гость</li>
+        <li>&gt; канал: публичная визитка</li>
+        <li>&gt; дешифровка архива: ок</li>
+        <li>&gt; сверка с сетью Шестого мира: ок</li>
+        <li>&gt; готово. добро пожаловать</li>
+      </ul>
+      <div class="boot__bar" aria-hidden="true"><span class="boot__fill"></span></div>
+      <div class="boot__actions">
+        <button class="boot__skip" type="button">Пропустить</button>
+        <button class="boot__sound" type="button" aria-pressed="false">Звук: выкл</button>
+      </div>
+      <label class="boot__never">
+        <input type="checkbox" id="boot-never">
+        Больше не показывать
+      </label>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <div class="topbar__inner">
+      <div class="brand-wrap">
+        <a class="brand" href="index.html">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <span class="brand__text">CATCO<span class="brand__slash">//</span>SERAPHIM</span>
+        </a>
+        <span class="access">публичная визитка</span>
+      </div>
+
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav">
+        <span class="burger__lines" aria-hidden="true"></span>
+        Меню
+      </button>
+
+      <nav class="nav" id="nav" aria-label="Разделы сайта">
+        <ul class="nav__list">
+          <li><a href="kto-my.html" aria-current="page">Кто мы</a></li>
+          <li><a href="igra.html">Игра</a></li>
+          <li><a href="svyaz.html">Связаться</a></li>
+        </ul>
+
+        <div class="theme-switch" role="group" aria-label="Облик сайта">
+          <button class="theme-switch__btn" type="button" data-theme="catco" aria-pressed="false">CatCo</button>
+          <button class="theme-switch__btn" type="button" data-theme="seraphim" aria-pressed="false">Seraphim</button>
+          <button class="theme-switch__btn" type="button" data-theme="guest" aria-pressed="true">Гость</button>
+        </div>
+
+        <button class="sound-btn" id="sound-toggle" type="button" aria-pressed="false">Звук: выкл</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="page">
+    <div class="page__head">
+      <p class="kicker"><span class="kicker__dot" aria-hidden="true"></span>Раздел 01 / 03</p>
+      <h1 class="page__title">Кто мы</h1>
+      <p class="page__lead">Корпорация-орден и её разведывательное крыло — коротко и без внутренних документов.</p>
+    </div>
+
+    <section class="dossier" id="catco" aria-labelledby="catco-title">
+      <p class="dossier__label">Дело № CAT-001</p>
+      <h2 class="dossier__title" id="catco-title">CatCo</h2>
+      <div class="dossier__body">
+        <p class="dossier__text" data-astral="Отсюда видно шрамы — их больше, чем лиц. Красный крест горит в астрале тускло, как лампа в коридоре, где никто не гасит свет. Тех, кого вынесли, помнят дольше, чем их имена.">
+          CatCo начиналась с медицины: клиники, службы спасения, разработки для больниц.
+          После катастрофы Матрицы корпорация потеряла высшую категорию и многих
+          партнёров, но не репутацию: работа с DocWagon и собственные медицинские
+          службы спасли десятки тысяч людей.
+        </p>
+        <p class="dossier__text">
+          Снаружи CatCo — корпорация. Внутри — орден: сотрудники называют друг друга
+          брат и сестра, держат слово и считают, что лечить нужно не только тело,
+          но и душу.
+        </p>
+      </div>
+    </section>
+
+    <section class="dossier dossier--dark" id="seraphim" aria-labelledby="seraphim-title">
+      <p class="dossier__label">Дело № SRF-002</p>
+      <h2 class="dossier__title" id="seraphim-title">Seraphim</h2>
+      <div class="dossier__body">
+        <p class="dossier__text" data-astral="Шесть крыльев складываются в темноте. Они не парят — стоят на страже, и тень падает туда, где беда ещё не случилась. Если за спиной тепло, значит, кто-то уже рядом.">
+          Seraphim выросли из разведывательного подразделения CatCo. После утечек
+          и катастрофы Матрицы их официально расформировали — а затем воссоздали
+          как частную военную компанию: охрана первых лиц, расследования,
+          оценка угроз.
+        </p>
+        <p class="dossier__text">
+          Имя взято не для красоты: шесть крыльев означают ум, скромность и дело,
+          которое ведёт других. Внутри компания делится на четыре крыла — штаб,
+          боевые отряды, информационная служба и служба заботы.
+        </p>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="board-link-title">
+      <p class="panel__label" id="board-link-title">Доска угроз</p>
+      <p class="panel__text">
+        Карточки, красные нити и картина заговора: кто с кем связан
+        и почему всё пошло не так.
+      </p>
+      <p><a class="button" href="doska.html">Открыть доску</a></p>
+    </section>
+
+    <section class="panel oracle" id="oracle" aria-labelledby="oracle-title">
+      <p class="panel__label" id="oracle-title">Оракул Серафимов</p>
+      <p class="panel__text">
+        Нажмите кнопку — оракул скажет одну фразу. Это шутка в лоре,
+        а не пророчество.
+      </p>
+      <p class="oracle__phrase" id="oracle-phrase" aria-live="polite">Оракул молчит. Спросите его.</p>
+      <div class="oracle__actions">
+        <button class="oracle__get" id="oracle-get" type="button">Получить девиз</button>
+        <button class="oracle__copy" id="oracle-copy" type="button" disabled>Скопировать</button>
+        <button class="oracle__share" id="oracle-share" type="button" hidden>Поделиться</button>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="chem-title">
+      <p class="panel__label" id="chem-title">Чем мы занимаемся</p>
+      <ul class="panel__list">
+        <li><strong>Медицина и спасение.</strong> Лечим, учим беречь себя и вывозим тех, кому совсем плохо.</li>
+        <li><strong>Охрана и расследования.</strong> Прикрываем людей и разбираемся, кто и зачем напал.</li>
+        <li><strong>Разведка и информация.</strong> Собираем сведения и проверяем то, что говорят другие.</li>
+      </ul>
+      <p class="panel__text">
+        На Burning Man мы играем корпорацию, которая пытается вернуть себе место
+        в высшей лиге — и по дороге не потерять себя.
+      </p>
+    </section>
+
+    <nav class="pager" aria-label="Соседние разделы">
+      <a class="pager__link" href="index.html">
+        <span>Назад</span>
+        <strong>Главная</strong>
+      </a>
+      <a class="pager__link pager__link--next" href="igra.html">
+        <span>Дальше</span>
+        <strong>Игра</strong>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <p class="footer__line">Полевая игра Shadowrun: Burning Man</p>
+      <p class="footer__muted" data-astral="Визитка, которую видно и с той стороны.">Публичная визитка команды CatCo × Seraphim.</p>
+      <p class="footer__muted"><a class="linklike" href="svyaz.html#svoi">Вход для своих</a></p>
+      <p class="footer__muted"><a class="linklike" href="terminal.html">&gt; терминал</a></p>
+      <button class="astral-toggle" id="astral-toggle" type="button" aria-pressed="false">Смотреть из астрала</button>
+      <p class="footer__muted">© <span id="year">2026</span> CatCo × Seraphim</p>
+    </div>
+  </footer>
+
+  <script src="oracle.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ru" data-faction="guest">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CatCo × Seraphim — команда на Shadowrun: Burning Man</title>
+  <meta name="description" content="Публичная визитка команды CatCo и Seraphim: кто мы, во что играем и как связаться. Полевая игра Shadowrun: Burning Man.">
+  <meta name="theme-color" content="#06090e">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2306090e'/%3E%3Cpath d='M13 7h6v6h6v6h-6v6h-6v-6H7v-6h6z' fill='%235fd8c6'/%3E%3C/svg%3E">
+  <script>
+    // Облик запоминаем до отрисовки, чтобы не было мигания.
+    try {
+      var savedTheme = localStorage.getItem("cs-theme");
+      if (savedTheme === "both") savedTheme = "guest";
+      if (savedTheme === "catco" || savedTheme === "seraphim" || savedTheme === "guest") {
+        document.documentElement.setAttribute("data-faction", savedTheme);
+      }
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <div class="screen-fx" aria-hidden="true"></div>
+
+  <div class="boot" id="boot" hidden aria-label="Заставка подключения">
+    <div class="boot__panel">
+      <p class="boot__title">Подключение к сети</p>
+      <ul class="boot__lines" aria-hidden="true">
+        <li>&gt; установка связи с узлом CATCO-06</li>
+        <li>&gt; проверка допуска: гость</li>
+        <li>&gt; канал: публичная визитка</li>
+        <li>&gt; дешифровка архива: ок</li>
+        <li>&gt; сверка с сетью Шестого мира: ок</li>
+        <li>&gt; готово. добро пожаловать</li>
+      </ul>
+      <div class="boot__bar" aria-hidden="true"><span class="boot__fill"></span></div>
+      <div class="boot__actions">
+        <button class="boot__skip" type="button">Пропустить</button>
+        <button class="boot__sound" type="button" aria-pressed="false">Звук: выкл</button>
+      </div>
+      <label class="boot__never">
+        <input type="checkbox" id="boot-never">
+        Больше не показывать
+      </label>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <div class="topbar__inner">
+      <div class="brand-wrap">
+        <a class="brand" href="index.html">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <span class="brand__text">CATCO<span class="brand__slash">//</span>SERAPHIM</span>
+        </a>
+        <span class="access">публичная визитка</span>
+      </div>
+
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav">
+        <span class="burger__lines" aria-hidden="true"></span>
+        Меню
+      </button>
+
+      <nav class="nav" id="nav" aria-label="Разделы сайта">
+        <ul class="nav__list">
+          <li><a href="kto-my.html">Кто мы</a></li>
+          <li><a href="igra.html">Игра</a></li>
+          <li><a href="svyaz.html">Связаться</a></li>
+        </ul>
+
+        <div class="theme-switch" role="group" aria-label="Облик сайта">
+          <button class="theme-switch__btn" type="button" data-theme="catco" aria-pressed="false">CatCo</button>
+          <button class="theme-switch__btn" type="button" data-theme="seraphim" aria-pressed="false">Seraphim</button>
+          <button class="theme-switch__btn" type="button" data-theme="guest" aria-pressed="true">Гость</button>
+        </div>
+
+        <button class="sound-btn" id="sound-toggle" type="button" aria-pressed="false">Звук: выкл</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="kicker">
+        <span class="kicker__dot" aria-hidden="true"></span>
+        Полевая игра Shadowrun: Burning Man
+      </p>
+
+      <h1 class="hero__title" id="hero-title">
+        CatCo <span class="hero__times" aria-hidden="true">×</span> Seraphim
+      </h1>
+
+      <p class="hero__lead">
+        <span data-astral="Слова здесь не говорят — их держат. Слышно, как они звенят в темноте.">Лечим тело. Бережём душу. Держим слово.</span><span class="cursor" aria-hidden="true"></span>
+      </p>
+
+      <div class="factions">
+        <a class="faction faction--catco" href="kto-my.html#catco">
+          <span class="faction__emblem" aria-hidden="true">
+            <svg viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="3">
+              <rect x="8" y="8" width="80" height="80" rx="4"/>
+              <path d="M44 28h8v16h16v8H52v16h-8V52H28v-8h16z"/>
+            </svg>
+          </span>
+          <span class="faction__name">CatCo</span>
+          <span class="faction__role">Корпорация-орден. Медицина, порядок, слово.</span>
+          <span class="faction__go">открыть дело <span aria-hidden="true">→</span></span>
+        </a>
+
+        <a class="faction faction--seraphim" href="kto-my.html#seraphim">
+          <span class="faction__emblem" aria-hidden="true">
+            <svg viewBox="0 0 96 72" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round">
+              <path d="M48 26l7 10-7 10-7-10z"/>
+              <path d="M42 30C34 20 22 14 10 14c6 6 10 12 12 18"/>
+              <path d="M40 40C30 34 18 33 6 36c8 4 14 9 18 15"/>
+              <path d="M42 50c-6 6-10 12-12 18"/>
+              <path d="M54 30c8-10 20-16 32-16-6 6-10 12-12 18"/>
+              <path d="M56 40c10-6 22-7 34-4-8 4-14 9-18 15"/>
+              <path d="M54 50c6 6 10 12 12 18"/>
+            </svg>
+          </span>
+          <span class="faction__name">Seraphim</span>
+          <span class="faction__role">Частная военная компания. Разведка, крылья, тайна.</span>
+          <span class="faction__go">открыть дело <span aria-hidden="true">→</span></span>
+        </a>
+      </div>
+
+      <p class="hero__note">Публичная визитка · для своих — отдельный вход</p>
+    </section>
+
+    <section class="sections" aria-labelledby="sections-title">
+      <h2 class="sections__title" id="sections-title">Что здесь есть</h2>
+      <p class="sections__sub" data-astral="Три двери. Открывайте по одной: за каждой кто-то уже ждёт.">Три коротких страницы. Без регистрации и лишних слов.</p>
+
+      <div class="cards">
+        <a class="card" href="kto-my.html">
+          <p class="card__num">01</p>
+          <h3 class="card__title">Кто мы</h3>
+          <p class="card__text">Корпорация-орден и её разведывательное крыло: коротко о том, кто мы и чего хотим.</p>
+          <p class="card__go">открыть раздел <span aria-hidden="true">→</span></p>
+        </a>
+
+        <a class="card" href="igra.html">
+          <p class="card__num">02</p>
+          <h3 class="card__title">Игра</h3>
+          <p class="card__text">Во что мы играем, какое оружие берём и что нужно знать новичку перед выездом.</p>
+          <p class="card__go">открыть раздел <span aria-hidden="true">→</span></p>
+        </a>
+
+        <a class="card" href="svyaz.html">
+          <p class="card__num">03</p>
+          <h3 class="card__title">Связаться</h3>
+          <p class="card__text">Как найти команду, задать вопрос и попасть к нам на игру.</p>
+          <p class="card__go">открыть раздел <span aria-hidden="true">→</span></p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <p class="footer__line">Полевая игра Shadowrun: Burning Man</p>
+      <p class="footer__muted" data-astral="Визитка, которую видно и с той стороны.">Публичная визитка команды CatCo × Seraphim.</p>
+      <p class="footer__muted"><a class="linklike" href="svyaz.html#svoi">Вход для своих</a></p>
+      <p class="footer__muted"><a class="linklike" href="terminal.html">&gt; терминал</a></p>
+      <button class="astral-toggle" id="astral-toggle" type="button" aria-pressed="false">Смотреть из астрала</button>
+      <p class="footer__muted">© <span id="year">2026</span> CatCo × Seraphim</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
